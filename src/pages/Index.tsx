@@ -1,11 +1,24 @@
-// Update this page (the content is just a fallback if you fail to update the page)
+import ParticleBackground from '@/components/ParticleBackground';
+import Navbar from '@/components/Navbar';
+import Hero from '@/components/Hero';
+import Timeline from '@/components/Timeline';
+import Instructions from '@/components/Instructions';
+import HowToApply from '@/components/HowToApply';
+import Contact from '@/components/Contact';
+import Footer from '@/components/Footer';
 
 const Index = () => {
   return (
-    <div className="flex min-h-screen items-center justify-center bg-background">
-      <div className="text-center">
-        <h1 className="mb-4 text-4xl font-bold">Welcome to Your Blank App</h1>
-        <p className="text-xl text-muted-foreground">Start building your amazing project here!</p>
+    <div className="relative min-h-screen">
+      <ParticleBackground />
+      <div className="relative z-10">
+        <Navbar />
+        <Hero />
+        <Timeline />
+        <Instructions />
+        <HowToApply />
+        <Contact />
+        <Footer />
       </div>
     </div>
   );
