@@ -26,8 +26,8 @@ const ParticleBackground = () => {
     window.addEventListener('resize', resizeCanvas);
 
     const particles: Particle[] = [];
-    const particleCount = 80;
-    const connectionDistance = 150;
+    const particleCount = 200;
+    const connectionDistance = 100;
 
     // Initialize particles
     for (let i = 0; i < particleCount; i++) {
@@ -54,7 +54,7 @@ const ParticleBackground = () => {
         // Draw particle
         ctx.beginPath();
         ctx.arc(particle.x, particle.y, 2, 0, Math.PI * 2);
-        ctx.fillStyle = 'rgba(30, 184, 255, 0.6)';
+        ctx.fillStyle = 'rgba(30, 184, 255, 0.7)';
         ctx.fill();
 
         // Draw connections
@@ -67,9 +67,9 @@ const ParticleBackground = () => {
             ctx.beginPath();
             ctx.moveTo(particle.x, particle.y);
             ctx.lineTo(otherParticle.x, otherParticle.y);
-            const opacity = (1 - distance / connectionDistance) * 0.3;
+            const opacity = (1 - distance / connectionDistance) * 0.5;
             ctx.strokeStyle = `rgba(30, 184, 255, ${opacity})`;
-            ctx.lineWidth = 1;
+            ctx.lineWidth = 1.2;
             ctx.stroke();
           }
         });
