@@ -9,20 +9,32 @@ const Instructions = () => {
   const sectionRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
+    console.log('Instructions component mounted');
+    
     if (sectionRef.current) {
       const cards = sectionRef.current.querySelectorAll('.instruction-card');
+      console.log('Found cards:', cards.length);
       
-      gsap.from(cards, {
+      // Ensure cards are visible by default
+      gsap.set(cards, { opacity: 1, y: 0 });
+      
+      // Simple animation with better triggers
+      const tl = gsap.timeline({
         scrollTrigger: {
           trigger: sectionRef.current,
-          start: 'top 70%',
+          start: 'top 85%',
+          end: 'bottom 15%',
           toggleActions: 'play none none reverse',
-        },
+          onEnter: () => console.log('Instructions animation triggered'),
+        }
+      });
+
+      tl.from(cards, {
         opacity: 0,
-        y: 50,
+        y: 30,
         duration: 0.6,
-        stagger: 0.2,
-        ease: 'power3.out',
+        stagger: 0.1,
+        ease: 'power2.out',
       });
     }
   }, []);
@@ -36,7 +48,6 @@ const Instructions = () => {
         'Include visuals, graphs, or prototypes.',
         'Highlight unique aspects of your project.',
       ],
-      gradient: 'from-blue-500/20 to-purple-500/20',
     },
     {
       icon: FileText,
@@ -46,7 +57,6 @@ const Instructions = () => {
         'Define your target audience and market.',
         'Outline the solution and innovation.',
       ],
-      gradient: 'from-yellow-500/20 to-orange-500/20',
     },
     {
       icon: DollarSign,
@@ -56,12 +66,16 @@ const Instructions = () => {
         'Break down how funds will be utilized.',
         'Justify financial support needed.',
       ],
-      gradient: 'from-green-500/20 to-emerald-500/20',
     },
   ];
 
   return (
-    <section id="instructions" className="relative py-20 lg:py-32" ref={sectionRef}>
+    <section 
+      id="instructions" 
+      className="relative py-20 lg:py-32 bg-background/50 border-t border-border/30" 
+      ref={sectionRef}
+      style={{ minHeight: '80vh' }}
+    >
       <div className="container mx-auto px-4 sm:px-6 lg:px-8">
         <div className="text-center mb-16">
           <h2 className="text-4xl md:text-5xl font-bold mb-4">
@@ -76,24 +90,24 @@ const Instructions = () => {
           {instructions.map((instruction, index) => (
             <div
               key={index}
-              className="instruction-card glass-card-hover p-8 relative overflow-hidden group"
+              className="instruction-card glass-card-hover p-8 relative overflow-hidden group min-h-[300px] 
+                         bg-card/80 border border-border/50 hover:border-primary/30
+                         backdrop-blur-sm shadow-xl hover:shadow-2xl 
+                         transition-all duration-300"
             >
-              {/* Gradient Background */}
-              <div className={`absolute inset-0 bg-gradient-to-br ${instruction.gradient} opacity-0 group-hover:opacity-100 transition-opacity duration-500`} />
-              
               {/* Content */}
               <div className="relative z-10 space-y-6">
                 <div className="w-16 h-16 rounded-2xl bg-primary/10 flex items-center justify-center group-hover:scale-110 transition-transform duration-300">
                   <instruction.icon className="w-8 h-8 text-primary" />
                 </div>
                 
-                <h3 className="text-2xl font-bold">{instruction.title}</h3>
+                <h3 className="text-2xl font-bold text-foreground">{instruction.title}</h3>
                 
                 <ul className="space-y-3">
                   {instruction.items.map((item, itemIndex) => (
                     <li key={itemIndex} className="flex items-start space-x-3">
                       <div className="w-1.5 h-1.5 rounded-full bg-primary mt-2 flex-shrink-0" />
-                      <span className="text-muted-foreground">{item}</span>
+                      <span className="text-foreground/80 leading-relaxed">{item}</span>
                     </li>
                   ))}
                 </ul>

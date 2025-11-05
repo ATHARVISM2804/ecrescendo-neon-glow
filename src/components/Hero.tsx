@@ -1,10 +1,13 @@
 import { Button } from '@/components/ui/button';
 import { FileText, Edit, BookOpen } from 'lucide-react';
-import { useEffect, useRef } from 'react';
+import { useEffect, useRef, useState } from 'react';
 import gsap from 'gsap';
 
 const Hero = () => {
   const heroRef = useRef<HTMLDivElement>(null);
+  const [currentWordIndex, setCurrentWordIndex] = useState(0);
+  
+  const animatedWords = ['EXCITING', 'REMARKABLE', 'THRILLING', 'INNOVATIVE'];
 
   useEffect(() => {
     if (heroRef.current) {
@@ -16,6 +19,14 @@ const Hero = () => {
         ease: 'power3.out',
       });
     }
+  }, []);
+
+  useEffect(() => {
+    const interval = setInterval(() => {
+      setCurrentWordIndex((prev) => (prev + 1) % animatedWords.length);
+    }, 2000);
+
+    return () => clearInterval(interval);
   }, []);
 
   const cards = [
@@ -58,42 +69,50 @@ const Hero = () => {
             </h1>
 
             <p className="text-xl md:text-2xl text-muted-foreground hero-animate max-w-3xl mx-auto">
-              Join the most <span className="text-primary font-semibold">EXCITING</span> event of the year!
+              Join the most{' '}
+              <span className="inline-block min-w-[140px] text-left">
+                <span 
+                  key={currentWordIndex}
+                  className="text-primary font-semibold animate-pulse inline-block
+                    transition-all duration-500 ease-in-out transform"
+                  style={{
+                    animation: 'fadeInUp 0.5s ease-out'
+                  }}
+                >
+                  {animatedWords[currentWordIndex]}
+                </span>
+              </span>
+              {' '}event of the year!
             </p>
 
             <p className="text-lg text-muted-foreground hero-animate">
               Organised by <span className="text-foreground font-semibold">E-Cell NIT Hamirpur</span>
             </p>
 
-            <div className="flex flex-wrap gap-4 justify-center hero-animate">
-              <Button
-                size="lg"
-                className="bg-gradient-to-r from-primary to-primary-glow text-primary-foreground hover:opacity-90 btn-glow"
-                onClick={() => window.location.href = '#contact'}
-              >
-                Register Now
-              </Button>
-              <Button
-                size="lg"
-                variant="outline"
-                className="border-primary/50 text-foreground hover:bg-primary/10"
-                onClick={() => window.location.href = '#timeline'}
-              >
-                View Timeline
-              </Button>
-            </div>
-
             {/* Quick Action Cards */}
-            <div className="grid grid-cols-1 sm:grid-cols-3 gap-6 pt-12 hero-animate max-w-4xl mx-auto">
+            <div className="grid grid-cols-1 sm:grid-cols-3 gap-4 sm:gap-6 pt-12 hero-animate max-w-4xl mx-auto">
               {cards.map((card, index) => (
                 <a
                   key={index}
                   href={card.href}
-                  className="glass-card-hover p-8 group cursor-pointer"
+                  className="relative p-6 sm:p-8 group cursor-pointer overflow-hidden
+                    bg-gradient-to-br from-white/10 via-white/5 to-transparent
+                    backdrop-blur-xl border border-white/20 rounded-xl
+                    hover:border-primary/50 hover:bg-white/15
+                    transition-all duration-500 ease-out
+                    shadow-[0_8px_32px_rgba(0,0,0,0.12)]
+                    hover:shadow-[0_16px_48px_rgba(30,184,255,0.15)]
+                    before:absolute before:inset-0 before:bg-gradient-to-br 
+                    before:from-transparent before:via-white/5 before:to-white/10
+                    before:opacity-0 hover:before:opacity-100 before:transition-opacity before:duration-500"
                 >
-                  <card.icon className="w-10 h-10 text-primary mb-4 group-hover:scale-110 transition-transform duration-300 mx-auto" />
-                  <h3 className="text-lg font-semibold mb-2">{card.title}</h3>
-                  <p className="text-sm text-muted-foreground">{card.description}</p>
+                  <div className="relative z-10">
+                    <card.icon className="w-8 h-8 sm:w-10 sm:h-10 text-primary mb-3 sm:mb-4 group-hover:scale-110 transition-transform duration-300 mx-auto drop-shadow-lg" />
+                    <h3 className="text-base sm:text-lg font-semibold mb-2 text-white/90">{card.title}</h3>
+                    <p className="text-xs sm:text-sm text-white/70">{card.description}</p>
+                  </div>
+                  {/* Reflection effect */}
+                  <div className="absolute inset-0 bg-gradient-to-t from-transparent via-transparent to-white/10 opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
                 </a>
               ))}
             </div>

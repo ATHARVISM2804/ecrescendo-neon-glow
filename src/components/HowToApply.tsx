@@ -33,7 +33,7 @@ const HowToApply = () => {
       icon: UserPlus,
       step: 'Step 1',
       title: 'Registration',
-      description: 'Fill out the registration form with your team details, contact information, and project overview. Make sure all information is accurate and complete.',
+      description: '• Register on the official website of E-Crescendo\n• Include your name and contact information\n• Add your team members details\n• Mention your startup idea\n• Upload your PPT on Google Drive and paste the public link\n• Registration must be completed by the team leader',
       action: 'Start Registration',
       href: '#contact',
     },
@@ -41,7 +41,7 @@ const HowToApply = () => {
       icon: Send,
       step: 'Step 2',
       title: 'Project Submission',
-      description: 'Submit your detailed project proposal including presentation, technical documentation, and funding requirements. Ensure all documents meet the specified guidelines.',
+      description: '• Submit a comprehensive project proposal\n• Clearly outline innovation, market potential, and impact\n• Include preliminary work or prototypes, if available\n• Clearly specify the addressing problem and the budget of your project\n• Projects can be from any domain (technical or non-technical)',
       action: 'Submit Project',
       href: '#contact',
     },
@@ -80,7 +80,7 @@ const HowToApply = () => {
                   </div>
                 </div>
                 
-                <p className="text-muted-foreground leading-relaxed">
+                <p className="text-muted-foreground leading-relaxed whitespace-pre-line">
                   {step.description}
                 </p>
                 
