@@ -35,7 +35,7 @@ const HowToApply = () => {
       title: 'Registration',
       description: '• Register on the official website of E-Crescendo\n• Include your name and contact information\n• Add your team members details\n• Mention your startup idea\n• Upload your PPT on Google Drive and paste the public link\n• Registration must be completed by the team leader',
       action: 'Start Registration',
-      href: '#contact',
+      href: 'https://docs.google.com/forms/d/e/1FAIpQLScF__FnO172vG27L3qatagzZcw1pereyR57aKHFRAxG_6rAgA/viewform?usp=publish-editor',
     },
     {
       icon: Send,
