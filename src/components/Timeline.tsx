@@ -32,26 +32,26 @@ const Timeline = () => {
     {
       icon: Calendar,
       title: 'Registration Begins',
-      date: '11 November 2024',
+      date: '7 November 2024',
       description: 'Open registration for all participants',
     },
     {
       icon: Users,
       title: 'Registration Ends',
-      date: '18 January 2025',
+      date: '13 November 2024',
       description: 'Last date to submit your application',
     },
     {
       icon: CheckCircle2,
-      title: 'Internal Screening',
-      date: '3rd Week of January',
-      description: 'Initial evaluation of submissions',
+      title: 'First Round',
+      date: '13 Nov (5pm-7pm) & 14 Nov (10am-1pm)',
+      description: 'Initial competition round',
     },
     {
       icon: Award,
-      title: 'Faculty Screening',
-      date: 'Last Week of January',
-      description: 'Final evaluation and selection',
+      title: 'Internal Screening',
+      date: '13 & 14 November',
+      description: 'Evaluation and selection process',
     },
   ];
 

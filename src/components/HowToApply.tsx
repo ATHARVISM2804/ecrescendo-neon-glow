@@ -34,16 +34,12 @@ const HowToApply = () => {
       step: 'Step 1',
       title: 'Registration',
       description: '• Register on the official website of E-Crescendo\n• Include your name and contact information\n• Add your team members details\n• Mention your startup idea\n• Upload your PPT on Google Drive and paste the public link\n• Registration must be completed by the team leader',
-      action: 'Start Registration',
-      href: 'https://docs.google.com/forms/d/e/1FAIpQLScF__FnO172vG27L3qatagzZcw1pereyR57aKHFRAxG_6rAgA/viewform?usp=publish-editor',
     },
     {
       icon: Send,
       step: 'Step 2',
       title: 'Project Submission',
       description: '• Submit a comprehensive project proposal\n• Clearly outline innovation, market potential, and impact\n• Include preliminary work or prototypes, if available\n• Clearly specify the addressing problem and the budget of your project\n• Projects can be from any domain (technical or non-technical)',
-      action: 'Submit Project',
-      href: '#contact',
     },
   ];
 
@@ -83,13 +79,6 @@ const HowToApply = () => {
                 <p className="text-muted-foreground leading-relaxed whitespace-pre-line">
                   {step.description}
                 </p>
-                
-                <Button
-                  className="w-full bg-gradient-to-r from-primary to-primary-glow text-primary-foreground hover:opacity-90 btn-glow"
-                  onClick={() => window.location.href = step.href}
-                >
-                  {step.action}
-                </Button>
               </div>
               
               {/* Decorative Elements */}
