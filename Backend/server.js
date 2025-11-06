@@ -1,6 +1,9 @@
 import express from "express";
 import { google } from "googleapis";
 import cors from "cors";
+import dotenv from "dotenv";
+
+dotenv.config();
 
 const app = express();
 const port = 4000;
@@ -19,7 +22,7 @@ app.get("/", (req, res) => {
 // ✅ Function to get Google Sheets auth
 async function getAuth() {
   return new google.auth.GoogleAuth({
-    keyFile: "credentials.json",
+    credentials: JSON.parse(process.env.GOOGLE_CREDENTIALS),
     scopes: ["https://www.googleapis.com/auth/spreadsheets"],
   });
 }
