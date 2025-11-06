@@ -60,7 +60,7 @@ const Navbar = () => {
           <div className="hidden lg:block">
             <Button
               className="bg-gradient-to-r from-primary to-primary-glow text-primary-foreground hover:opacity-90 btn-glow"
-              onClick={() => window.location.href = '#contact'}
+              onClick={() => window.location.href = 'https://docs.google.com/forms/d/e/1FAIpQLScF__FnO172vG27L3qatagzZcw1pereyR57aKHFRAxG_6rAgA/viewform?usp=publish-editor'}
             >
               Register Now
             </Button>

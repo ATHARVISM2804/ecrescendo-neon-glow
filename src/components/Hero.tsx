@@ -34,7 +34,7 @@ const Hero = () => {
       icon: FileText,
       title: 'Register Here',
       description: 'Start your journey',
-      href: '#contact',
+      href: 'https://docs.google.com/forms/d/e/1FAIpQLScF__FnO172vG27L3qatagzZcw1pereyR57aKHFRAxG_6rAgA/viewform?usp=publish-editor',
     },
     {
       icon: Edit,
@@ -124,4 +124,3 @@ const Hero = () => {
 };
 
 export default Hero;
-
