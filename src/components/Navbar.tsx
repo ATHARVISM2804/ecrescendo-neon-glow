@@ -35,7 +35,7 @@ const Navbar = () => {
           {/* Logo */}
           <div className="flex items-center space-x-2">
             <div className="w-10 h-10 bg-gradient-to-br from-primary to-primary-glow rounded-lg flex items-center justify-center">
-              <span className="text-xl font-bold text-primary-foreground">E</span>
+              <img src="/image.png" alt="E Logo" className="w-6 h-6 inline-block align-middle" />
             </div>
             <span className="text-2xl font-bold bg-gradient-to-r from-foreground to-primary bg-clip-text text-transparent">
               E-Crescendo

@@ -5,9 +5,9 @@ const Footer = () => {
 
   const socialLinks = [
     { icon: Github, href: '#', label: 'GitHub' },
-    { icon: Linkedin, href: '#', label: 'LinkedIn' },
-    { icon: Twitter, href: '#', label: 'Twitter' },
-    { icon: Instagram, href: '#', label: 'Instagram' },
+    { icon: Linkedin, href: 'https://www.linkedin.com/company/entrepreneurshipcellnith/posts/?feedView=all', label: 'LinkedIn' },
+    { icon: Twitter, href: 'https://x.com/ecellnith?lang=en&mx=2', label: 'Twitter' },
+    { icon: Instagram, href: 'https://www.instagram.com/ecell_nith/?hl=en', label: 'Instagram' },
   ];
 
   return (
