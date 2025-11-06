@@ -14,14 +14,26 @@ const Footer = () => {
     <footer className="relative py-12 border-t border-border/50">
       <div className="container mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex flex-col items-center space-y-6">
-          {/* Logo */}
-          <div className="flex items-center space-x-2">
-            <div className="w-10 h-10 bg-gradient-to-br from-primary to-primary-glow rounded-lg flex items-center justify-center">
-              <span className="text-xl font-bold text-primary-foreground">E</span>
+          {/* Main Content with E-Cell logo on the left */}
+          <div className="flex items-center space-x-8">
+            {/* E-Cell Logo */}
+            <img 
+              src="https://res.cloudinary.com/dmhabztbf/image/upload/v1762455352/ecell_xgdpga.webp"
+              alt="E-Cell NITH Logo"
+              className="w-24 h-24 object-contain"
+            />
+            
+            {/* E-Crescendo Logo */}
+            <div className="flex items-center space-x-2">
+              <img 
+                src="https://res.cloudinary.com/dmhabztbf/image/upload/v1762455353/logo_ztcqp4.webp"
+                alt="E-Cell NITH Logo"
+                className="w-10 h-10 rounded-lg object-contain"
+              />
+              <span className="text-2xl font-bold bg-gradient-to-r from-foreground to-primary bg-clip-text text-transparent">
+                E-Crescendo
+              </span>
             </div>
-            <span className="text-2xl font-bold bg-gradient-to-r from-foreground to-primary bg-clip-text text-transparent">
-              E-Crescendo
-            </span>
           </div>
 
           {/* Tagline */}
