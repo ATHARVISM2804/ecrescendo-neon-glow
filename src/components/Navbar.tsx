@@ -34,9 +34,11 @@ const Navbar = () => {
         <div className="flex items-center justify-between h-20">
           {/* Logo */}
           <div className="flex items-center space-x-2">
-            <div className="w-10 h-10 bg-gradient-to-br from-primary to-primary-glow rounded-lg flex items-center justify-center">
-              <img src="/image.png" alt="E Logo" className="w-6 h-6 inline-block align-middle" />
-            </div>
+            <img 
+              src="https://res.cloudinary.com/dmhabztbf/image/upload/v1762455353/logo_ztcqp4.webp" 
+              alt="E Logo" 
+              className="w-10 h-10 object-contain" 
+            />
             <span className="text-2xl font-bold bg-gradient-to-r from-foreground to-primary bg-clip-text text-transparent">
               E-Crescendo
             </span>
