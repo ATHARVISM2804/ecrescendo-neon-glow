@@ -21,7 +21,7 @@ const Navbar = () => {
     { name: 'Instructions', href: '#instructions' },
     { name: 'How to Apply', href: '#apply' },
     { name: 'Contact Us', href: '#contact' },
-    { name: 'Admin Panel', href: '#admin' },
+    
   ];
 
   return (
