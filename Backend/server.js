@@ -1,11 +1,16 @@
 import express from "express";
 import { google } from "googleapis";
+import cors from "cors";
 
 const app = express();
 const port = 4000;
 
 // Parse incoming JSON
 app.use(express.json());
+app.use(cors({
+  origin: ["http://localhost:8080", "https://ecrescendo-neon-glow.vercel.app"]
+}));
+
 
 app.get("/", (req, res) => {
   res.send("Server is working 🚀");

@@ -13,7 +13,7 @@ const Contact = () => {
   const sectionRef = useRef<HTMLDivElement>(null);
   const [formData, setFormData] = useState({
     name: '',
-    phone: '',
+    number: '',
     email: '',
     query: '',
   });
@@ -34,10 +34,28 @@ const Contact = () => {
     }
   }, []);
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    toast.success('Message sent successfully! We will get back to you soon.');
-    setFormData({ name: '', phone: '', email: '', query: '' });
+
+    try {
+      const response = await fetch("http://localhost:4000/query", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(formData),
+      });
+
+      if (response.ok) {
+        toast.success("Message sent successfully! We will get back to you soon.");
+        setFormData({ name: "", phone: "", email: "", query: "" });
+      } else {
+        toast.error("Failed to send your message. Try again later.");
+      }
+    } catch (error) {
+      console.error("Error:", error);
+      toast.error("Server error. Please try again later.");
+    }
   };
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
@@ -80,8 +98,8 @@ const Contact = () => {
                   Phone Number
                 </label>
                 <Input
-                  id="phone"
-                  name="phone"
+                  id="number"
+                  name="number"
                   type="tel"
                   required
                   value={formData.phone}
