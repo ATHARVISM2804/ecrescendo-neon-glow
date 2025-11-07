@@ -151,14 +151,6 @@ const Contact = () => {
           </div>
         </div>
       </div>
-
-      {/* Floating Chat Icon */}
-      <a
-        href="#contact"
-        className="fixed bottom-8 right-8 w-14 h-14 bg-gradient-to-r from-primary to-primary-glow rounded-full flex items-center justify-center shadow-lg btn-glow hover:scale-110 transition-transform duration-300 z-40 animate-float"
-      >
-        <MessageCircle className="w-6 h-6 text-primary-foreground" />
-      </a>
     </section>
   );
 };
