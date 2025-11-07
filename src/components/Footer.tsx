@@ -1,13 +1,14 @@
-import { Github, Linkedin, Twitter, Instagram } from 'lucide-react';
+import { Linkedin, Twitter, Instagram, Facebook, Mail} from 'lucide-react';
 
 const Footer = () => {
   const currentYear = new Date().getFullYear();
 
   const socialLinks = [
-    { icon: Github, href: '#', label: 'GitHub' },
+    { icon: Mail, href: 'mailto:entrepreneurshipcellnith@gmail.com', label: 'Gmail' },
     { icon: Linkedin, href: 'https://www.linkedin.com/company/entrepreneurshipcellnith/posts/?feedView=all', label: 'LinkedIn' },
     { icon: Twitter, href: 'https://x.com/ecellnith?lang=en&mx=2', label: 'Twitter' },
     { icon: Instagram, href: 'https://www.instagram.com/ecell_nith/?hl=en', label: 'Instagram' },
+    { icon: Facebook, href: 'https://www.facebook.com/eclubnith/', label: 'Facebook' },
   ];
 
   return (
